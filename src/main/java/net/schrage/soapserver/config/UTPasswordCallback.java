@@ -24,7 +24,7 @@ public class UTPasswordCallback implements CallbackHandler {
   public void handle(Callback[] callbacks) throws IOException, UnsupportedCallbackException {
     Arrays.stream(callbacks)
         .map(callback -> (WSPasswordCallback) callback)
-        .filter(pwCallback -> storedPasswords.containsKey(pwCallback.getIdentifier()))
-        .forEach(pwCallback -> pwCallback.setPassword(storedPasswords.get(pwCallback.getIdentifier())));
+        .filter(allTransferredCredentials -> storedPasswords.containsKey(allTransferredCredentials.getIdentifier()))
+        .forEach(transferredCredential -> transferredCredential.setPassword(storedPasswords.get(transferredCredential.getIdentifier())));
   }
 }
