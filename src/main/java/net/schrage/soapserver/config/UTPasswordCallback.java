@@ -18,6 +18,7 @@ public class UTPasswordCallback implements CallbackHandler {
   public UTPasswordCallback() {
     storedPasswords.put("Michael", "geheim");
     storedPasswords.put("Lisa", "nochgeheimer");
+    storedPasswords.put("myservicekey", "skpass");
   }
 
   @Override
