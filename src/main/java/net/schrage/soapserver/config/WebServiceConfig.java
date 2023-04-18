@@ -34,14 +34,15 @@ public class WebServiceConfig {
     Map<String, Object> inProps = new HashMap<>();
 
     /* Adding WSS4J Security*/
-//    inProps.put(ConfigurationConstants.ACTION, "UsernameToken Encrypt");
-    inProps.put(WSHandlerConstants.ACTION, WSHandlerConstants.SIGNATURE);
-    //inProps.put(ConfigurationConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
-    //inProps.put(ConfigurationConstants.PW_CALLBACK_CLASS, UTPasswordCallback.class.getName());
+    inProps.put(ConfigurationConstants.ACTION, "UsernameToken Encrypt");
+    //inProps.put(WSHandlerConstants.ACTION, WSHandlerConstants.SIGNATURE);
+    inProps.put(ConfigurationConstants.PASSWORD_TYPE, WSConstants.PW_TEXT);
+    inProps.put(ConfigurationConstants.PW_CALLBACK_CLASS, UTPasswordCallback.class.getName());
     /* End Security*/
 
     /*Start decryption*/
-    inProps.put(WSHandlerConstants.SIG_PROP_FILE, "etc/serviceKeystore.properties");
+    //inProps.put(WSHandlerConstants.SIG_PROP_FILE, "etc/serviceKeystore.properties");
+    inProps.put(WSHandlerConstants.DEC_PROP_FILE, "etc/serviceKeystore.properties");
 
 
     WSS4JInInterceptor wssIn = new WSS4JInInterceptor(inProps);
